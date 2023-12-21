@@ -4,7 +4,7 @@
 
 Rename BAT File (exemple: The Island --> The_Island_WP) and execute.
 
-How to Save and Stop: write "exit" or "quit" in ArkAscendedServer.exe window.
+Force Save and Stop: write "exit" or "quit" in ArkAscendedServer.exe window.
 
 ## Features
 
