@@ -8,7 +8,7 @@
 - Update Server
 - Remove Useless Files (Movies ~5 Gb)
 - Launch Server
-- Allocate 2 Cores to Server Instance (8C)
+- Allocate 2 Cores to Server Instance ($Process.ProcessorAffinity)
 
 ![image](https://github.com/Naarin/ARK-Survival-Ascended-Server-Batch/assets/30729156/e0f47a35-6971-4587-892f-34daa0498dc8)
 
