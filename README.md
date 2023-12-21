@@ -3,7 +3,7 @@
 ## Features
 
 - Simple : rename as <map_name> (see https://ark.wiki.gg/wiki/Server_configuration#Maps)
-- Backup Saves
+- Backup Saves (SaveGames and SavedArks) and .ini (Game.ini and GUS.ini)
 - Download and Install SteamCMD
 - Update Server
 - Remove Useless Files (Movies ~5 Gb)
