@@ -2,12 +2,13 @@
 
 ## Features
 
-- Simple Setup: rename as <map_name> (see https://ark.wiki.gg/wiki/Server_configuration#Maps)
+- Simple : rename as <map_name> (see https://ark.wiki.gg/wiki/Server_configuration#Maps)
 - Backup Saves
 - Download and Install SteamCMD
 - Update Server
 - Remove Useless Files (Movies ~5 Gb)
-- Cores Allocation (2 Cores)
+- Launch Server
+- Allocate 2 Cores to Server Instance (8C)
 
 ![image](https://github.com/Naarin/ARK-Survival-Ascended-Server-Batch/assets/30729156/e0f47a35-6971-4587-892f-34daa0498dc8)
 
