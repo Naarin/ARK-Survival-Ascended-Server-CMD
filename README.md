@@ -1,13 +1,8 @@
 # ARK-Survival-Ascended-Server-Batch
 
-## Description
-
-Rename (exemple: The Island --> The_Island_WP) and execute.
-
-Force Save and Stop: write "exit" or "quit" in ArkAscendedServer.exe window.
-
 ## Features
 
+- Simple Setup: rename (exemple: The Island --> The_Island_WP) and execute.
 - Backup Saves
 - Download and Install SteamCMD
 - Update Server
