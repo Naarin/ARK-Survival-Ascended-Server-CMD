@@ -5,8 +5,6 @@ Rename (exemple: The Island --> The_Island_WP).
 
 DOWNLOAD AND PLAY! NOTHING MORE TO DO
 
-AFTER
-
 ## Features
 - Auto Backup: Game.ini, GUS.ini, .arkprofile, .profilebak, .ark and .bak
 - Auto Download and Install SteamCMD
