@@ -4,7 +4,7 @@
 
 Rename (exemple: The Island --> The_Island_WP).
 
-ONE CLICK DOWNLOAD AND PLAY!
+One click download update and start the server!
 
 ## Features
 
