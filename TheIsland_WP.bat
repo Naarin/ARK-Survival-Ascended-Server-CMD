@@ -2,12 +2,6 @@
 
 set BackupName=%~n0_%Date:~-4%%Date:~3,2%%Date:~0,2%%Time:~0,2%%Time:~3,2%%Time:~6,2%
 
-set MultiHome=127.0.0.1
-set Port=7777
-set QueryPort=27015
-set SessionName=%~n0
-set Options=-mods=931874,933986 -NoBattlEye -noundermeshchecking -WinLiveMaxPlayers=1
-
 xcopy  /e /q .\%~n0\ShooterGame\Saved\Config\WindowsServer\Game.ini .\Backup\%BackupName%\ShooterGame\Saved\Config\WindowsServer\
 xcopy  /e /q .\%~n0\ShooterGame\Saved\Config\WindowsServer\GameUserSettings.ini .\Backup\%BackupName%\ShooterGame\Saved\Config\WindowsServer\
 xcopy  /e /q .\%~n0\ShooterGame\Saved\SavedArks\%~n0\*.arkprofile .\Backup\%BackupName%\ShooterGame\Saved\SavedArks\%~n0\
@@ -16,7 +10,7 @@ xcopy  /e /q .\%~n0\ShooterGame\Saved\SavedArks\%~n0\%~n0.ark .\Backup\%BackupNa
 xcopy  /e /q .\%~n0\ShooterGame\Saved\SavedArks\%~n0\%~n0_AntiCorruptionBackup.bak .\Backup\%BackupName%\ShooterGame\Saved\SavedArks\%~n0\
 xcopy  /e /q .\%~n0\ShooterGame\Saved\SaveGames\* .\Backup\%BackupName%\ShooterGame\Saved\SaveGames\
 
-if not exist .\SteamCMD (
+if not exist .\SteamCMD ( & :: download SteamCMD
 	mkdir .\SteamCMD
 	powershell -command "Start-BitsTransfer -Source https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
 	powershell -command "Expand-Archive steamcmd.zip"
@@ -25,9 +19,9 @@ if not exist .\SteamCMD (
 )
 
 mkdir .\%~n0\
-.\SteamCMD\steamcmd.exe +force_install_dir ..\%~n0\ +login anonymous +app_update 2430930 +quit
-rmdir /q /s .\%~n0\ShooterGame\Content\Movies & :: remove useless data
+.\SteamCMD\steamcmd.exe +force_install_dir ..\%~n0\ +login anonymous +app_update 2430930 +quit & :: update server
+rmdir /q /s .\%~n0\ShooterGame\Content\Movies & :: useless data
 
-start .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %~n0?MultiHome=%MultiHome%?Port=%Port%?QueryPort=%QueryPort%?SessionName=%SessionName% %Options%
+start .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %~n0 ?MultiHome=127.0.0.1 ?Port=7777 ?QueryPort=27015 ?SessionName=%~n0 ?ServerAdminPassword=1331 ?ServerPassword=1331 -NoBattlEye -noundermeshchecking -WinLiveMaxPlayers=1 & :: start server
 timeout 5
-powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440"
+powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 12/13 and 14/15 cores/threads (61440 = 0xF000 = 1111000000000000)
