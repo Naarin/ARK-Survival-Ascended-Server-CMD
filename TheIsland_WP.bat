@@ -24,4 +24,4 @@ rmdir /q /s .\%~n0\ShooterGame\Content\Movies & :: useless data
 
 start .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %~n0 ?MultiHome=127.0.0.1 ?Port=7777 ?QueryPort=27015 ?SessionName=%~n0 ?ServerAdminPassword=1331 ?ServerPassword=1331 -NoBattlEye -noundermeshchecking -WinLiveMaxPlayers=1 & :: start server
 timeout 5
-powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 12/13 and 14/15 cores/threads (61440 = 0xF000 = 1111000000000000)
+powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 13/14 and 15/16 cores/threads (61440 = 0xF000 = 1111000000000000)
