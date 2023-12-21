@@ -2,7 +2,7 @@
 
 ## Description
 
-Rename (exemple: The Island --> The_Island_WP).
+Rename BAT File (exemple: The Island --> The_Island_WP) and execute.
 
 ## Features
 
