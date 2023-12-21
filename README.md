@@ -3,11 +3,11 @@ ARK: Survival Ascended Server Batch
 
 Rename (exemple: The Island --> The_Island_WP).
 
-DOWNLOAD AND PLAY! NOTHING MORE TO DO
+ONE CLICK DOWNLOAD AND PLAY!
 
 ## Features
-- Auto Backup: Game.ini, GUS.ini, .arkprofile, .profilebak, .ark and .bak
-- Auto Download and Install SteamCMD
-- Auto Update Server
-- Auto Remove Useless Files (Movies ~5 Gb)
-- Auto Cores Allocation (2 Cores)
+- Backup: Game.ini, GUS.ini, .arkprofile, .profilebak, .ark and .bak
+- Download and Install SteamCMD
+- Update Server
+- Remove Useless Files (Movies ~5 Gb)
+- Cores Allocation (2 Cores)
