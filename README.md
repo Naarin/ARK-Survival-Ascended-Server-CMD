@@ -2,7 +2,7 @@
 
 ## Features
 
-- Simple Setup: rename (exemple: The Island --> The_Island_WP) and execute.
+- Simple Setup: rename as <map_name> (see https://ark.wiki.gg/wiki/Server_configuration#Maps)
 - Backup Saves
 - Download and Install SteamCMD
 - Update Server
