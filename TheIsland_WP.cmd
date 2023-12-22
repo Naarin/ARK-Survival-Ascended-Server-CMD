@@ -24,6 +24,7 @@ echo IP ADRESS:PORT          = %MultiHome%:%QueryPort%
 echo PASSWORD                = %ServerPassword%
 echo ADMIN PASSWORD          = %ServerAdminPassword%
 echo OPTIONS                 = %Options%
+timeout 1 > nul
 echo ---------------------------------------------------------------------------------------------------------
 echo COPY FILES FROM SAVED FOLDER TO BACKUP FOLDER ///////////////////////////////////////////////////////////
 echo ---------------------------------------------------------------------------------------------------------
