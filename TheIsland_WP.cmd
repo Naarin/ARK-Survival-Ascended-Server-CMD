@@ -43,9 +43,9 @@ echo ---------------------------------------------------------------------------
 echo START SERVER ///////////////////////////////////////////////////////////////////////////////////////////////
 echo ------------------------------------------------------------------------------------------------------------
 start /min .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %~n0 ?MultiHome=127.0.0.1 ?Port=7777 ?QueryPort=27015 ?SessionName=%~n0 ?ServerAdminPassword=ServerAdminPassword ?ServerPassword=ServerPassword -NoBattlEye -noundermeshchecking & :: start server
-timeout 3 > nul & powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 13/14 and 15/16 cores/threads (61440 = 0xF000 = 1111000000000000)
+timeout 15 > nul & :: let some time to start server
+powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 13/14 and 15/16 cores/threads (61440 = 0xF000 = 1111000000000000)
 echo STARTED!
-timeout 30 > nul & :: let some time to start server
 :Backup
 timeout 1800 > nul
 echo ------------------------------------------------------------------------------------------------------------
