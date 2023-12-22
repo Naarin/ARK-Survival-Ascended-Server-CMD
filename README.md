@@ -16,7 +16,7 @@ Download and Execute!
 
 ## Screenshots
 
-![image](https://github.com/Naarin/ARK-Survival-Ascended-Server-Batch/assets/30729156/bc96c056-251d-4bc5-aa52-c1145113511e)
+![image](https://github.com/Naarin/ARK-Survival-Ascended-Server-CMD/assets/30729156/35ed05d0-8876-40ca-814e-8df49fe2d0cc)
 
 ![image](https://github.com/Naarin/ARK-Survival-Ascended-Server-Batch/assets/30729156/e0f47a35-6971-4587-892f-34daa0498dc8)
 
