@@ -2,17 +2,17 @@
 
 ## Features
 
-- Simple : rename as <map_name> (see https://ark.wiki.gg/wiki/Server_configuration#Maps)
 - Backup : saves (SaveGames + SavedArks) and .ini (Game.ini + GUS.ini) when server start and ev. 30 minutes (1800 secondes)
 - Download and Install SteamCMD
 - Update Server
 - Remove Useless Files : movies ~5 Gb
 - Launch Server
-- Allocate 2 Cores
 
 ## Installation
 
-Download and Execute!
+Rename (<map_name>) and Execute!
+
+see https://ark.wiki.gg/wiki/Server_configuration#Maps
 
 ## Screenshots
 
