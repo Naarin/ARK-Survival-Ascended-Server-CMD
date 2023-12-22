@@ -29,7 +29,7 @@ if not exist .\SteamCMD\ (
 	echo SteamCMD Installed!
 )
 
-if not exist .\%~n0\ (
+if not exist .\%~n0\ShooterGame\ (
 	echo.
 	echo --------------------------------------------------
 	echo INSTALL SERVER
