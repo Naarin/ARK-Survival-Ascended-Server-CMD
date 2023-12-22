@@ -1,5 +1,10 @@
 @echo off
-echo #################### BACKUP ####################
+
+color 05
+
+echo --------------------------------------------------
+echo BACKUP SAVE FILES
+echo --------------------------------------------------
 echo.
 set BackupName=%~n0_%Date:~-4%%Date:~3,2%%Date:~0,2%%Time:~0,2%%Time:~3,2%%Time:~6,2%
 xcopy  /e /q .\%~n0\ShooterGame\Saved\Config\WindowsServer\Game.ini .\Backup\%BackupName%\ShooterGame\Saved\Config\WindowsServer\
@@ -10,35 +15,57 @@ xcopy  /e /q .\%~n0\ShooterGame\Saved\SavedArks\%~n0\%~n0.ark .\Backup\%BackupNa
 xcopy  /e /q .\%~n0\ShooterGame\Saved\SavedArks\%~n0\%~n0_AntiCorruptionBackup.bak .\Backup\%BackupName%\ShooterGame\Saved\SavedArks\%~n0\
 xcopy  /e /q .\%~n0\ShooterGame\Saved\SaveGames\* .\Backup\%BackupName%\ShooterGame\Saved\SaveGames\
 
-if not exist .\SteamCMD (
-	mkdir .\SteamCMD
+if not exist .\SteamCMD\ (
+	echo.
+	echo --------------------------------------------------
+	echo INSTALL STEAMCMD
+	echo --------------------------------------------------
+	echo.
+	mkdir .\SteamCMD > nul
 	powershell -command "Start-BitsTransfer -Source https://steamcdn-a.akamaihd.net/client/installer/steamcmd.zip"
 	powershell -command "Expand-Archive steamcmd.zip"
 	del .\steamcmd.zip
 	.\SteamCMD\steamcmd.exe +quit
+	echo SteamCMD Installed!
 )
+
 if not exist .\%~n0\ (
-	mkdir .\%~n0\
+	echo.
+	echo --------------------------------------------------
+	echo INSTALL SERVER
+	echo --------------------------------------------------
+	echo.
+	mkdir .\%~n0\ > nul
+	.\SteamCMD\steamcmd.exe +force_install_dir ..\%~n0\ +login anonymous +app_update 2430930 +quit
+) else (
+	echo.
+	echo --------------------------------------------------
+	echo UPDATE SERVER
+	echo --------------------------------------------------
+	echo.
+	.\SteamCMD\steamcmd.exe +force_install_dir ..\%~n0\ +login anonymous +app_update 2430930 +quit
 )
-echo.
-echo #################### UPDATE ####################
-echo.
-.\SteamCMD\steamcmd.exe +force_install_dir ..\%~n0\ +login anonymous +app_update 2430930 +quit & :: update server
+
 if exist .\%~n0\ShooterGame\Content\Movies\ (
-	rmdir /q /s .\%~n0\ShooterGame\Content\Movies\
+	rmdir /q /s .\%~n0\ShooterGame\Content\Movies\ > nul
 )
+
 echo.
-echo #################### STARTE ####################
+echo --------------------------------------------------
+echo START SERVER
+echo --------------------------------------------------
 @echo on
-start .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %~n0 ?MultiHome=127.0.0.1 ?Port=7777 ?QueryPort=27015 ?SessionName=%~n0 ?ServerAdminPassword=1331 ?ServerPassword=1331 -NoBattlEye -noundermeshchecking -WinLiveMaxPlayers=1 & :: start server
+start /min .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %~n0 ?MultiHome=127.0.0.1 ?Port=7777 ?QueryPort=27015 ?SessionName=%~n0 ?ServerAdminPassword=ServerAdminPassword ?ServerPassword=ServerPassword -NoBattlEye -noundermeshchecking & :: start server
 @echo off
-timeout 5
+timeout 5 > nul
 powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 13/14 and 15/16 cores/threads (61440 = 0xF000 = 1111000000000000)
 
 :Backup
+timeout 1800 > nul
 echo.
-echo #################### BACKUP ####################
-timeout 1800
+echo --------------------------------------------------
+echo BACKUP SAVE FILES
+echo --------------------------------------------------
 echo.
 set BackupName=%~n0_%Date:~-4%%Date:~3,2%%Date:~0,2%%Time:~0,2%%Time:~3,2%%Time:~6,2%
 xcopy  /e /q .\%~n0\ShooterGame\Saved\Config\WindowsServer\Game.ini .\Backup\%BackupName%\ShooterGame\Saved\Config\WindowsServer\
