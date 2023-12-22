@@ -6,8 +6,18 @@ echo 88~~~88   `Y8b. 88~~~88      `Y8b. 88~~~~~ 88`8b   `8b  d8' 88~~~~~ 88`8b  
 echo 88   88 db   8D 88   88    db   8D 88.     88 `88.  `8bd8'  88.     88 `88.    Y8b  d8 88  88  88 88  .8D
 echo YP   YP `8888Y' YP   YP    `8888Y' Y88888P 88   YD    YP    Y88888P 88   YD     `Y88P' YP  YP  YP Y8888D'
 echo.
+echo                                                     _
+echo                                                    /X\
+echo                                                   /   \
+echo                                                  /  _  \
+echo                                                 /  / \  \
+echo                                                /  /__\\  \
+echo                                               /  _____\\  \
+echo                                              /\ /       \ /\
+echo                                             /XX\         /XX\
+echo.
 echo                                                                                            BY ZEHN/NAARIN
-timeout 1 > nul
+timeout 3 > nul
 echo ---------------------------------------------------------------------------------------------------------
 echo SERVER INFORMATIONS /////////////////////////////////////////////////////////////////////////////////////
 echo ---------------------------------------------------------------------------------------------------------
@@ -19,12 +29,15 @@ set SessionName=%~n0
 set ServerPassword=
 set ServerAdminPassword=
 set Options=-NoBattlEye -noundermeshchecking
+set ProcessorAffinity=   & :: | Core/Thread | 16 | 15 | 14 | 13 | 12 | 11 | 10 | 09 | 08 | 07 | 06 | 05 | 04 | 03 | 02 | 01 |
+set ProcessorAffinity=15 & :: |    15 = BIN |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  0 |  1 |  1 |  1 |  1 |
 echo SESSION NAME (MAP NAME) = %SessionName% (%MapName%)
 echo IP ADRESS:PORT          = %MultiHome%:%QueryPort%
 echo PASSWORD                = %ServerPassword%
 echo ADMIN PASSWORD          = %ServerAdminPassword%
 echo OPTIONS                 = %Options%
-timeout 1 > nul
+echo PROCESSOR AFFINITY      = %ProcessorAffinity%
+timeout 2 > nul
 echo ---------------------------------------------------------------------------------------------------------
 echo COPY FILES FROM SAVED FOLDER TO BACKUP FOLDER ///////////////////////////////////////////////////////////
 echo ---------------------------------------------------------------------------------------------------------
@@ -68,7 +81,7 @@ echo START SERVER //////////////////////////////////////////////////////////////
 echo ---------------------------------------------------------------------------------------------------------
 start /min .\%~n0\ShooterGame\Binaries\Win64\ArkAscendedServer.exe %MapName%?MultiHome=%MultiHome%?Port=%Port%?QueryPort=%QueryPort%?SessionName=%SessionName%?ServerPassword=%ServerPassword%?ServerAdminPassword=%ServerAdminPassword% %Options% & :: start server
 timeout 15 > nul & :: let some time to start server
-powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = 61440" & :: use 13/14 and 15/16 cores/threads (61440 = 0xF000 = 1111000000000000)
+powershell "$Process = Get-Process ArkAscendedServer ; $Process.ProcessorAffinity = %ProcessorAffinity%"
 echo STARTED! DON'T CLOSE THIS WINDOW IF YOU WANT REGULAR BACKUP (EVERY 15 MIN). 
 echo YOU CAN FORCE BACKUP BY PRESSING ANY KEYS.
 :Backup
